@@ -58,20 +58,23 @@
                             <td><img style="height:20px;width:20px;" src="data:image/png;base64,{{application.jobSeeker.image}}" alt="Image" class="img-fluid"></td>
                             <td>{{application.jobSeeker.email}}</td>
                              <td>{{application.jobSeeker.phone}}</td>
+                             <form (ngSubmit)="statusUpdate()">
                              <td>
-                              <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected>Change job status</option>
-                                <option value="1">Short Listed</option>
-                                <option value="2">Interview Scheduled</option>
-                                <option value="2">Technical round Scheduled</option>
-                                <option value="2">HR round Scheduled</option>
-                                <option value="2">Canceled</option>
-                                <option value="2">Rejected</option>
-                              </select>
                               
+                              <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="status" #status [(ngModel)]="application.status" >
+                                <option selected>Change job status</option>
+                                <option value="Sortlisted">Sortlisted</option>
+                                <option value="Interview Scheduled">Interview Scheduled</option>
+                                <option value="Technical round Scheduled">Technical round Scheduled</option>
+                                <option value="HR round Scheduled">HR round Scheduled</option>
+                                <option value="Canceled">Canceled</option>
+                                <option value="Rejected">Rejected</option>
+                              </select>
+                           
 
                             </td>
                             <td><button type="button" class="btn btn-secondary btn-sm">Update</button></td>
+                          </form>
                           </tr>
                          
                         </tbody>

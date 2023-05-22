@@ -103,4 +103,11 @@ export class RecruiterService {
 
     return this.http.post("http://localhost:8080/api/job/addjob",formData);
   }
+
+  updateJobApplicationstatus(status:any,id:any):Observable<Object>
+  {
+    const formData: FormData = new FormData();
+    formData.append("status", status);
+    return this.http.put("http://localhost:8080/api/job/application/status/"+id,status);
+  }
 }

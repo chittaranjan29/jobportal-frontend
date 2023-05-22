@@ -11,6 +11,7 @@ export class JobApplicantListComponent implements OnInit{
   recruiterId:any;
   recruiterDetails:any;
   applicationList:any;
+  application:any;
   constructor(private router:Router, private recruiterService:RecruiterService)
   {
 
@@ -30,6 +31,12 @@ export class JobApplicantListComponent implements OnInit{
         this.applicationList=response;
       }
      );
+  }
+
+  statusUpdate()
+  {
+    console.log(this.application);
+    this.recruiterService.updateJobApplicationstatus(this.application.status,this)
   }
   logout()
   {
