@@ -9,7 +9,6 @@ import { JobseekerProfileComponent } from './components/job-seeker/jobseeker-pro
 import { JobApplicationsStatusComponent } from './components/job-seeker/job-applications-status/job-applications-status.component';
 import { JobApplicantListComponent } from './components/recruiter/job-applicant-list/job-applicant-list.component';
 import { JobDetailsComponent } from './components/common/job-details/job-details.component';
-import { PostJobComponent } from './components/recruiter/post-job/post-job.component';
 import { ErrorComponent } from './components/common/error/error.component';
 import { JobseekerSignupComponent } from './components/job-seeker/jobseeker-signup/jobseeker-signup.component';
 import { AuthenticationGuard } from './services/authentication.guard';
@@ -47,8 +46,6 @@ const routes: Routes = [
   {path:'recruiter-profile', component:RecruiterProfileComponent, canActivate: [AuthenticationGuard]},
   {path:'job-applicant-list', component:JobApplicantListComponent, canActivate: [AuthenticationGuard]},
   {path:'recruiter-profile-update', component:RecruiterUpdateProfileComponent, canActivate: [AuthenticationGuard]},
-  {path:'recruiter-add-job', component:PostJobComponent, canActivate: [AuthenticationGuard]},
-  {path:'recruiter-update-job', component:PostJobComponent, canActivate: [AuthenticationGuard]},
   {path:'recruiter-update-password', component:RecruiterChangePasswordComponent, canActivate: [AuthenticationGuard]},
   {path:'**', component:ErrorComponent}
 ];

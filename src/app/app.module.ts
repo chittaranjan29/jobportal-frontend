@@ -13,7 +13,6 @@ import { JobseekerProfileComponent } from './components/job-seeker/jobseeker-pro
 import { JobseekerSignupComponent } from './components/job-seeker/jobseeker-signup/jobseeker-signup.component';
 import { RecruiterSignupComponent } from './components/recruiter/recruiter-signup/recruiter-signup.component';
 import { RecruiterSigninComponent } from './components/recruiter/recruiter-signin/recruiter-signin.component';
-import { PostJobComponent } from './components/recruiter/post-job/post-job.component';
 import { JobApplicantListComponent } from './components/recruiter/job-applicant-list/job-applicant-list.component';
 import { RecruiterProfileComponent } from './components/recruiter/recruiter-profile/recruiter-profile.component';
 import { ErrorComponent } from './components/common/error/error.component';
@@ -45,7 +44,6 @@ import { RecruiterChangePasswordComponent } from './components/recruiter/recruit
     JobseekerSignupComponent,
     RecruiterSignupComponent,
     RecruiterSigninComponent,
-    PostJobComponent,
     JobApplicantListComponent,
     RecruiterProfileComponent,
     ErrorComponent,

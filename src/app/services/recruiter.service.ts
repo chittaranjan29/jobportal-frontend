@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -104,10 +104,38 @@ export class RecruiterService {
     return this.http.post("http://localhost:8080/api/job/addjob",formData);
   }
 
-  updateJobApplicationstatus(status:any,id:any):Observable<Object>
+  updateJobApplicationstatus(applicationStatus:any,id:any):Observable<Object>
   {
-    const formData: FormData = new FormData();
-    formData.append("status", status);
-    return this.http.put("http://localhost:8080/api/job/application/status/"+id,status);
+    //alert(applicationStatus)
+   // let queryParams = new HttpParams();
+    //queryParams.append("status",applicationStatus);
+   // queryParams.append("id",id);
+    return this.http.put("http://localhost:8080/api/job/application/state?status="+applicationStatus+"&id="+id,null);
+  }
+
+
+  updateJobStatus(status:any,id:any):Observable<Object>
+  {
+    //alert(applicationStatus)
+    //let queryParams = new HttpParams();
+    //queryParams.append("status",applicationStatus);
+    //queryParams.append("id",id);
+    return this.http.put("http://localhost:8080/api/job/status?status="+status+"&id="+id,null);
+  }
+  updateProfileImage(image:File,jobSeekerId:any):Observable<any>
+  {
+    const formData:FormData=new FormData();
+  
+    formData.append("image",image);
+   
+    
+    return this.http.put("http://localhost:8080/api/auth/recruiter/picture/"+jobSeekerId,formData  );
+  }
+  passwordUpdate(oldPassword:any,newPassword:any,jobSeekerId:any):Observable<Object>
+  {
+    const formData:FormData=new FormData();
+    formData.append("oldPassword",oldPassword);
+    formData.append("newPassword",newPassword);
+    return this.http.put("http://localhost:8080/api/auth/recruiter/password/"+jobSeekerId,formData);
   }
 }

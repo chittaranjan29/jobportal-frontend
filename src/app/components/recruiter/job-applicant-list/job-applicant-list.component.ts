@@ -29,17 +29,36 @@ export class JobApplicantListComponent implements OnInit{
      this.recruiterService.jobApplicationsByRecruiter(this.recruiterId).subscribe(
       response =>{
         this.applicationList=response;
+        console.log(this.applicationList);
       }
      );
   }
 
-  statusUpdate()
+  statusUpdate(id:any,status:any)
   {
-    console.log(this.application);
-    this.recruiterService.updateJobApplicationstatus(this.application.status,this)
+    //alert(id)
+    //alert(status)
+    //console.log(this.application);
+    this.recruiterService.updateJobApplicationstatus(status,id).subscribe(
+      (response)  =>{
+        alert('application status updated!!')
+        this.ngOnInit();
+      },
+      (error)=>{
+        console.log(error)
+      }
+    );
   }
   logout()
   {
     this.recruiterService.recruiterLogout();
   }
+  generateResume(pdf:any, resume:any) {
+    const source = `data:application/pdf;base64,${pdf}`;
+    const link = document.createElement("a");
+    link.href = source;
+    link.download = `${resume}.pdf`
+    link.click();
+  }
+ 
 }

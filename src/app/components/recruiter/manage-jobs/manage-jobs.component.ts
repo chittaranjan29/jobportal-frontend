@@ -31,6 +31,22 @@ export class ManageJobsComponent {
       }
      );
   }
+
+  jobStatusUpdate(status:any,id:any)
+  {
+    //alert(id)
+    //alert(status)
+    //console.log(this.application);
+    this.recruiterService.updateJobStatus(status,id).subscribe(
+      (response)  =>{
+        alert('Job status updated!!')
+        this.ngOnInit();
+      },
+      (error)=>{
+        console.log(error)
+      }
+    );
+  }
   logout()
   {
     this.recruiterService.recruiterLogout();

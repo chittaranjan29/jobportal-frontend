@@ -41,10 +41,9 @@
                             <th scope="col">Job Id</th>
                             <th scope="col">Job Role</th>
                             <th scope="col">Applicant</th>  
-                            <th scope="col">Picture</th>  
-                                              
-                            <th scope="col"> Email</th>
-                            <th scope="col"> Contact</th>
+                            <th scope="col">Resume </th>
+                            <th scope="col"> Status</th>
+                            <th scope="col">Contact</th> 
                             <th scope="col">Action</th>
                             <th scope="col"></th>
                           </tr>
@@ -55,13 +54,13 @@
                             <td>{{application.job.id}}</td>
                             <td>{{application.job.title}}</td>
                             <td>{{application.jobSeeker.name}}</td>
-                            <td><img style="height:20px;width:20px;" src="data:image/png;base64,{{application.jobSeeker.image}}" alt="Image" class="img-fluid"></td>
-                            <td>{{application.jobSeeker.email}}</td>
+                            <td><button type="button" class="btn btn-info btn-sm" (click)="generateResume(application.jobSeeker.cv,'resume')">Download</button></td>
+                            <td>{{application.status}}</td>
                              <td>{{application.jobSeeker.phone}}</td>
-                             <form (ngSubmit)="statusUpdate()">
+                            
                              <td>
                               
-                              <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="status" #status [(ngModel)]="application.status" >
+                              <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="status" #status  >
                                 <option selected>Change job status</option>
                                 <option value="Sortlisted">Sortlisted</option>
                                 <option value="Interview Scheduled">Interview Scheduled</option>
@@ -73,8 +72,8 @@
                            
 
                             </td>
-                            <td><button type="button" class="btn btn-secondary btn-sm">Update</button></td>
-                          </form>
+                            <td><button type="button" class="btn btn-secondary btn-sm" (click)="statusUpdate(application.id,status.value)">Update</button></td>
+                        
                           </tr>
                          
                         </tbody>
