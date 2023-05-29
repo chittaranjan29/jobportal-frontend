@@ -65,7 +65,8 @@ import { RecruiterChangePasswordComponent } from './components/recruiter/recruit
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
 
   ],
   providers: [],

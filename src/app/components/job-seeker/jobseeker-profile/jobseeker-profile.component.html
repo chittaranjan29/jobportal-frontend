@@ -2,19 +2,7 @@
     <div class="container">
 <div class="d-flex" id="wrapper">
     
-    <div class="border-end bg-white" id="sidebar-wrapper">
-       <div class="sidebar-heading border-bottom bg-light"><b><button type="button"  class="btn btn-warning btn-sm">Welcome &nbsp;{{jobseekerDetails.name}}</button></b></div> 
-      
-      <div class="list-group list-group-flush">
-       <!-- <a class="list-group-item list-group-item-action list-group-item-light p-3" routerLink="/jobseeker-profile-update">Update Profile</a>-->  
-          <a class="list-group-item list-group-item-action list-group-item-light p-3" routerLink="/jobseeker-resume">Resume</a>
-          <a class="list-group-item list-group-item-action list-group-item-light p-3" routerLink="/jobseeker-image">Profile Image</a>
-          <a class="list-group-item list-group-item-action list-group-item-light p-3" routerLink="/jobseeker-password-change">Password Change</a>
-          <a class="list-group-item list-group-item-action list-group-item-light p-3" routerLink="/jobseeker-applications-status">Apllication Status</a>
-          <a class="list-group-item list-group-item-action list-group-item-light p-3" routerLink="/jobseeker-applications-status">Logout</a>
-
-      </div>
-  </div>
+ <app-jobseeker-menu></app-jobseeker-menu>
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
         <!-- Top navigation-->
@@ -43,7 +31,7 @@
                     <div class="card-body p-4">
                       <div class="d-flex text-black">
                         <div class="flex-shrink-0">
-                          <img src="data:image/png;base64,{{jobseekerDetails.image}}" 
+                          <img src="{{jobseekerLogo}}" 
                             alt="Generic placeholder image" class="img-fluid"
                             style="width: 180px; border-radius: 10px;" />
                         </div>

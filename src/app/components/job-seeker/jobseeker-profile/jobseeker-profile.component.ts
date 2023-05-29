@@ -11,6 +11,7 @@ export class JobseekerProfileComponent implements OnInit{
 
   jobSeekerId:any;
   jobseekerDetails:any;
+  jobseekerLogo:any="/assets/images/demo-user.png";
   constructor(private router:Router,private jobseekerService:JobseekerService)
   {
 
@@ -20,6 +21,10 @@ export class JobseekerProfileComponent implements OnInit{
      this.jobseekerService.jobSeekerDetails(this.jobSeekerId).subscribe(
         response =>{
           this.jobseekerDetails=response;
+          if(this.jobseekerDetails.image!=undefined)
+          {
+            this.jobseekerLogo="data:image/png;base64,"+this.jobseekerDetails.image;
+          }
           console.log(this.jobseekerDetails);
         }
 

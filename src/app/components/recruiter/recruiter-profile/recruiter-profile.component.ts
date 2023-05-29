@@ -10,6 +10,7 @@ import { RecruiterService } from 'src/app/services/recruiter.service';
 export class RecruiterProfileComponent implements OnInit {
   recruiterId:any;
   recruiterDetails:any;
+  recruiterLogo:any="/assets/images/recruiter-avatar.png";
   constructor(private router:Router, private recruiterService:RecruiterService)
   {
 
@@ -19,6 +20,10 @@ export class RecruiterProfileComponent implements OnInit {
      this.recruiterService.recruiterDetails(this.recruiterId).subscribe(
         response =>{
           this.recruiterDetails=response;
+          if(this.recruiterDetails.logo!=undefined)
+          {
+            this.recruiterLogo="data:image/png;base64,"+this.recruiterDetails.logo;
+          }
           console.log(this.recruiterDetails);
         }
 

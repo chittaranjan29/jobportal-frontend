@@ -13,7 +13,7 @@ export class JobseekerSignupComponent {
   obj:any;
   constructor(private jobSeekerService:JobseekerService, private router:Router)
   {
-
+    
   }
 
   onSubmit(obj:any)
@@ -34,8 +34,9 @@ export class JobseekerSignupComponent {
       },
       eresponse=>
       {
+        
         console.log(eresponse)
-        alert(eresponse.error.message);
+       //alert(eresponse.error.message);
       }
     );
   }

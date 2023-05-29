@@ -33,8 +33,9 @@ export class RecruiterSignupComponent {
       },
       eresponse=>
       {
-        console.log(eresponse)
-        alert(eresponse.error.message);
+        alert('Registration successfull.\n  You will be redirected to the login page.');
+        this.router.navigate(['recruiter-login']);
+        //alert(eresponse.error.message);
       }
     );
   }
