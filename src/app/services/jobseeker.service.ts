@@ -9,7 +9,7 @@ import { jobSeekerLogin } from '../models/JobseekerLogin';
 })
 export class JobseekerService {
 
-  baseUrl="http://localhost:8080/api/auth/jobseeker/"
+  baseUrl="http://localhost:9090/api/auth/jobseeker/"
  
   constructor(private http:HttpClient, private route:Router) { }
 
@@ -41,19 +41,19 @@ export class JobseekerService {
 
   jobApplication(jobId:any,jobSeekerId:any):Observable<Object>
   {
-    return this.http.post("http://localhost:8080/api/job/application/applyjob/"+jobId+"/"+jobSeekerId,null);
+    return this.http.post("http://localhost:9090/api/job/application/applyjob/"+jobId+"/"+jobSeekerId,null);
   }
 
 
   jobSeekerDetails(id:any):Observable<Object>
   {
-    return this.http.get("http://localhost:8080/api/auth/jobseeker/"+id);
+    return this.http.get("http://localhost:9090/api/auth/jobseeker/"+id);
   }
 
 
   getAllJobApplications(jobseekerId:any):Observable<Object>
   {
-    return this.http.get("http://localhost:8080/api/job/application/"+jobseekerId);
+    return this.http.get("http://localhost:9090/api/job/application/"+jobseekerId);
   }
 
 
@@ -64,7 +64,7 @@ export class JobseekerService {
     formData.append("image",image);
    
     
-    return this.http.put("http://localhost:8080/api/auth/jobseeker/profile/picture/"+jobSeekerId,formData  );
+    return this.http.put("http://localhost:9090/api/auth/jobseeker/profile/picture/"+jobSeekerId,formData  );
   }
 
 
@@ -75,7 +75,7 @@ export class JobseekerService {
     formData.append("resume",resume);
    
     
-    return this.http.put("http://localhost:8080/api/auth/jobseeker/profile/resume/"+jobSeekerId,formData  );
+    return this.http.put("http://localhost:9090/api/auth/jobseeker/profile/resume/"+jobSeekerId,formData  );
   }
 
 
@@ -84,6 +84,6 @@ export class JobseekerService {
     const formData:FormData=new FormData();
     formData.append("oldPassword",oldPassword);
     formData.append("newPassword",newPassword);
-    return this.http.put("http://localhost:8080/api/auth/jobseeker/profile/change/password/"+jobSeekerId,formData);
+    return this.http.put("http://localhost:9090/api/auth/jobseeker/profile/change/password/"+jobSeekerId,formData);
   }
 }

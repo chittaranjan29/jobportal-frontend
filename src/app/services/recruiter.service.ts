@@ -12,7 +12,7 @@ import { Recruiter } from '../models/Recruiter';
 export class RecruiterService {
 
  
-  baseUrl="http://localhost:8080/api/auth/recruiter/"
+  baseUrl="http://localhost:9090/api/auth/recruiter/"
  
   constructor(private http:HttpClient, private route:Router) { }
 
@@ -33,28 +33,28 @@ export class RecruiterService {
 
   recruiterDetails(id:any):Observable<Object>
   {
-    return this.http.get("http://localhost:8080/api/auth/recruiter/"+id);
+    return this.http.get("http://localhost:9090/api/auth/recruiter/"+id);
   }
 
   
   jobs():Observable<Object>
   {
     
-    return this.http.get("http://localhost:8080/api/job/jobs");
+    return this.http.get("http://localhost:9090/api/job/jobs");
 
   }
   
   job(jobId:any):Observable<Object>
   {
     
-    return this.http.get("http://localhost:8080/api/job/"+jobId);
+    return this.http.get("http://localhost:9090/api/job/"+jobId);
 
   }
 
   jobsByCategory(categoryId:any):Observable<Object>
   {
     
-    return this.http.get("http://localhost:8080/api/job/category/"+categoryId);
+    return this.http.get("http://localhost:9090/api/job/category/"+categoryId);
 
   }
 
@@ -62,7 +62,7 @@ export class RecruiterService {
   {
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(obj);
-    return this.http.put("http://localhost:8080/api/auth/recruiter/profile/update/"+id,obj);
+    return this.http.put("http://localhost:9090/api/auth/recruiter/profile/update/"+id,obj);
   }
 
   recruiterLogout()
@@ -79,13 +79,13 @@ export class RecruiterService {
 
   jobspostedByRecruiter(recruiterId:any):Observable<Object>
   {
-    return this.http.get("http://localhost:8080/api/job/recruiter/"+recruiterId);
+    return this.http.get("http://localhost:9090/api/job/recruiter/"+recruiterId);
   }
 
 
   jobApplicationsByRecruiter(recruiterId:any):Observable<Object>
   {
-    return this.http.get("http://localhost:8080/api/job/application/recruiter/"+recruiterId);
+    return this.http.get("http://localhost:9090/api/job/application/recruiter/"+recruiterId);
   }
 
   postJob(obj:any):Observable<Object>
@@ -100,8 +100,8 @@ export class RecruiterService {
     formData.append("numberOfVacancy", obj.numberOfVacancy);
     formData.append("categoryId", obj.categoryId);
     formData.append("recruiterId", obj.recruiterId);
-
-    return this.http.post("http://localhost:8080/api/job/addjob",formData);
+    formData.append("lastdate", obj.lastDate);
+    return this.http.post("http://localhost:9090/api/job/addjob",formData);
   }
 
   updateJobApplicationstatus(applicationStatus:any,id:any):Observable<Object>
@@ -110,7 +110,7 @@ export class RecruiterService {
    // let queryParams = new HttpParams();
     //queryParams.append("status",applicationStatus);
    // queryParams.append("id",id);
-    return this.http.put("http://localhost:8080/api/job/application/state?status="+applicationStatus+"&id="+id,null);
+    return this.http.put("http://localhost:9090/api/job/application/state?status="+applicationStatus+"&id="+id,null);
   }
 
 
@@ -120,7 +120,7 @@ export class RecruiterService {
     //let queryParams = new HttpParams();
     //queryParams.append("status",applicationStatus);
     //queryParams.append("id",id);
-    return this.http.put("http://localhost:8080/api/job/status?status="+status+"&id="+id,null);
+    return this.http.put("http://localhost:9090/api/job/status?status="+status+"&id="+id,null);
   }
   updateProfileImage(image:File,jobSeekerId:any):Observable<any>
   {
@@ -129,13 +129,13 @@ export class RecruiterService {
     formData.append("image",image);
    
     
-    return this.http.put("http://localhost:8080/api/auth/recruiter/picture/"+jobSeekerId,formData  );
+    return this.http.put("http://localhost:9090/api/auth/recruiter/picture/"+jobSeekerId,formData  );
   }
   passwordUpdate(oldPassword:any,newPassword:any,jobSeekerId:any):Observable<Object>
   {
     const formData:FormData=new FormData();
     formData.append("oldPassword",oldPassword);
     formData.append("newPassword",newPassword);
-    return this.http.put("http://localhost:8080/api/auth/recruiter/password/"+jobSeekerId,formData);
+    return this.http.put("http://localhost:9090/api/auth/recruiter/password/"+jobSeekerId,formData);
   }
 }
